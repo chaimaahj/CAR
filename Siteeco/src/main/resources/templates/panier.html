@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+</head>
+<body>
+
+<th:block th:include="/home"></th:block>
+
+<h2 th:if="${!lignecommande.isEmpty()}">Voila votre panier</h2>
+<h2 th:if="${lignecommande.isEmpty()}"> votre panier est vide </h2>
+<table border="1" th:if="${!lignecommande.isEmpty()}" class="table">
+
+    <thead>
+    <tr>
+        <th colspan="6">Liste des produits ajoutés au panier </th>
+    </tr>
+    </thead>
+    <tr>
+        <th></th>
+        <th>Nom</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+    </tr>
+    <tr th:each="lcommande : ${lignecommande}">
+
+        <th><img  th:src="${lcommande.img}" height="150" width="150"   /></th>
+        <td th:text="${lcommande.nom}"></td>
+        <td th:text="${lcommande.qte}"></td>
+        <td th:text="${lcommande.prix}"></td>
+
+
+        <td>
+            <form th:action="@{/addAmount/{id}(id=${lcommande.getIdProduit()})}" >
+                <input  class="fas fa-plus-circle" type="submit" value="Ajouter un produit" />
+            </form>
+
+        </td>
+        <td>
+            <form th:action="@{/deleteProduct/{id}(id=${lcommande.getIdlCommande()})}" >
+                <input type="submit" value="Retirer le produit" />
+            </form>
+        </td>
+
+
+    </tr>
+
+    <td>Total:<span th:text="${total}"></span></td>
+    <td>
+        <form th:action="@{/addCommande}" >
+            <input type="submit" value="Valider la commande" />
+        </form>
+    </td>
+
+</table>
+
+</body>
+</html>

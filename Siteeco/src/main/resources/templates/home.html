@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACCUEIL</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="header__wrapper">
+
+    <div class="header__icons" position="center">
+        <div class="srchfrm">
+            <div class="srchfrm__form active">
+                <form th:action="@{/p}">
+                <label  class="srchfrm__label">Recherche </label>
+                <input name="name" type="text" value=""  class="srchfrm__field"/>
+                    <input type="submit" value="Rechercher">
+            </form>
+
+            </div>
+        </div>
+        <div><h2>ART STORE</h2></div>
+        <div class="header__icon">
+            <a class="header__icon-cta" href="/products">
+                <img class="header__icon-img"  src="images/iconproduct.png">
+                <span >Produits</span>
+            </a>
+        </div>
+        <div class="header__icon">
+            <a class="header__icon-cta" href="/moncompte">
+                <img class="header__icon-img"  src="images/iconuser.png">
+                <span>Mon compte</span>
+            </a>
+        </div>
+        <div class="header__icon">
+            <a  class="header__icon-cta" href="/panier">
+                <img class="header__icon-img"  src="images/panier.png">
+                <span>panier</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</nav>
+
+</body>
+</html>

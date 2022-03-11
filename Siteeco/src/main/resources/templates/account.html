@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Mon compte </title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<th:block th:include="/home"></th:block>
+<div class="under-fixed " style="padding-top: 150px;">
+    <div class="accountform">
+        <div class="accountform__choice">
+            <div class="accountform__login">
+                <h1 id="login-title"  class="customer-account__title" >Vous avez déjà un compte ?</h1>
+                <form id="new-user" class="tunnel" method="post" th:action="@{/sigin}" >
+                    <div class="form-el filled">
+                        <label for="login" class="form-label">login</label>
+                        <input type="text" maxlength="80" name="login" id="login">
+
+                    </div>
+                    <div class="form-el filled">
+                        <label for="password" class="form-label">mot de passe*</label>
+                        <input type="password" maxlength="80" name="password" id="password" >
+                    </div>
+                    <input class="bouton" type="submit" value="Se connecter" />
+                </form>
+            </div>
+            <div class="accountform__signup">
+                <h3 class="customer-account__subline">Bienvenue sur Art Store!</h3>
+                <p class="customer-account__txt">Inscrivez-vous</p>
+                <div class="customer-account__creation-cta">
+                    <button class="customer-account__open-cta customer-account__open-creation" onclick=window.location.href='addClient' type="button" data-beaver-id="addClient">Créer mon compte</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

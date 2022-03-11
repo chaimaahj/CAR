@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+
+<body>
+<th:block th:include="/home"></th:block>
+<table id="products" class="table" >
+    <thead>
+    <tr>
+        <th>Produits</th>
+
+    </tr>
+    </thead>
+
+    <td th:each="product : ${products}" th:if="${product.qte != 0}" >
+        <ul  >
+        <li><img  th:src="${product.img}" height="150" width="150"   /></li>
+            <li>Nom:<span th:text="${product.nom }"></span></li>
+            <li>Prix:<span th:text="${product.prix } + '€' "></span></li>
+
+
+        </ul>
+        <form th:action="@{/addProduct/{id}(id=${product.id})}" th:if="${product.qte != 0 }">
+        <input type="submit" value="Ajout au panier" />
+        </form>
+
+</table>
+</body>
+</html>

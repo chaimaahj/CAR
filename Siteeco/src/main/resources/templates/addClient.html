@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inscription</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<th:block th:include="/home"></th:block>
+<h1>Inscription</h1>
+<form th:action="@{/addClient}"
+      th:object="${clientForm}" method="POST"  class="create-account-form"   >
+
+    <fieldset>
+        <legend>Inscription :</legend>
+        <label for="nom">Nom :</label>
+        <input type="text" name="nom" size="20" maxlength="40" value="nom" id="nom" th:field="*{nom}" required/>
+        <label for="prenom">Prenom :</label>
+        <input type="text" name="prenom" size="20" maxlength="40" value="prenom" id="prenom" th:field="*{prenom}" required />
+
+        <label for="login">Login :</label>
+        <input type="text" name="login" size="20" maxlength="40" value="login" id="login" th:field="*{login}" required/>
+        <label for="password">Password :</label>
+        <input type="password" name="password" size="20" maxlength="40" value="password" id="password"  th:field="*{password}" required/>
+        <label for="email">Email :</label>
+        <input type="email" name="email" size="20" maxlength="40" value="email" id="email" th:field="*{email}" required/>
+
+
+
+    </fieldset>
+
+
+
+    <p>
+        <input class="bouton" type="submit" value="Créer" />
+        <input class="bouton" type="reset" value="Annuler" />
+    </p>
+</form>
+</body>
+</html>

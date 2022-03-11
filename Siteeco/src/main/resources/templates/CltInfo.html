@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Client List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<th:block th:include="/home"></th:block>
+<a>Le compte a été bien crée</a>
+<br/><br/>
+<div>
+    <table border="1" id="client" class="table">
+        <tr>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Login</th>
+            <th>Email </th>
+        </tr>
+        <tr >
+            <td th:utext="${client.prenom}">...</td>
+            <td th:utext="${client.nom}">...</td>
+            <td th:utext="${client.login}">...</td>
+            <td th:utext="${client.email}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
